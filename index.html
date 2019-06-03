@@ -1,0 +1,59 @@
+<title>Hanko to Nuorgam timer</title>
+<style>
+body {
+    background: #222;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    background: #222;
+    width: 100%;
+    height: 25vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h2 {
+    color: #fff;
+    font-size: 6rem;
+}
+.timer, #timer, #timer2 {
+    color: #fff;
+    font-size: 4rem;
+}
+.label {
+    font-size: 2.5rem;
+    padding-left: 0.25rem;
+}
+</style>
+<div class="container">
+    <h2>Departure&nbsp;</h2>
+    <p class="timer">
+        2019-06-03 11:25
+    </p>
+</div>
+<div class="container">
+    <h2>Time so far&nbsp;</h2>
+    <p id="timer2">
+        <span id="timer-days2"></span>
+        <span id="timer-hours2"></span>
+        <span id="timer-mins2"></span>
+        <span id="timer-secs2"></span>
+    </p>
+</div>
+<div class="container">
+    <h2>Time to beat&nbsp;</h2>
+    <p class="timer">
+        2019-06-08 14:55
+    </p>
+</div>
+<div class="container">
+    <h2>Remaining&nbsp;</h2>
+    <p id="timer">
+        <span id="timer-days"></span>
+        <span id="timer-hours"></span>
+        <span id="timer-mins"></span>
+        <span id="timer-secs"></span>
+    </p>
+</div>
+<script src="script.js"></script>
