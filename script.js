@@ -1,10 +1,6 @@
 const startDate = new Date("Jun 3, 2019 11:25:00").getTime();
 const endDate = new Date("Jun 8, 2019 14:55:00").getTime();
 
-const now = new Date().getTime();
-const t = endDate - now;
-const t2 = now - startDate;
-
 const calc = function(t) {
     const days = Math.floor(t / (1000 * 60 * 60 * 24));
     const hours = Math.floor((t % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -14,6 +10,10 @@ const calc = function(t) {
 };
 
 var timer = setInterval(function() {
+
+    let now = new Date().getTime();
+    let t = endDate - now;
+    let t2 = now - startDate;
 
     if (t >= 0) {
 
