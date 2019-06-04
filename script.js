@@ -1,5 +1,5 @@
 const startDate = new Date("Jun 3, 2019 11:25:00").getTime();
-const endDate = new Date("Jun 8, 2019 14:55:00").getTime();
+const endDate = new Date("Jun 8, 2019 15:00:00").getTime();
 
 const calc = function(t) {
     const days = Math.floor(t / (1000 * 60 * 60 * 24));
