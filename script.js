@@ -9,8 +9,8 @@ const calc = function(t) {
     return {days: days, hours: hours, mins: mins, secs: secs};
 };
 
-var timer = setInterval(function() {
 
+const update = function() {
     let now = new Date().getTime();
     let t = endDate - now;
     let t2 = now - startDate;
@@ -45,10 +45,16 @@ var timer = setInterval(function() {
         document.getElementById("timer-secs2").innerHTML = ("0"+time.secs).slice(-2) +
         "<span class='label'>s</span>";
 
+    setInterval(update, 1000);
+
+
     } else {
 
         document.getElementById("timer").innerHTML = "The countdown is over!";
+        document.getElementById("timer2").innerHTML = "The countdown is over!";
 
     }
 
-}, 1000);
+};
+
+update();
