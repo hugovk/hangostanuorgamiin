@@ -1,7 +1,27 @@
-const startDate = new Date("Jun 3, 2019 11:25:00").getTime();
-const endDate = new Date("Jun 8, 2019 15:00:00").getTime();
+const startDateText = "2021-06-21 09:00"
+const startDate = new Date(startDateText).getTime();
+// const samulisTime = new Date("Jun 6, 2019 01:03:00").getTime();
 
-const samulisTime = new Date("Jun 6, 2019 01:03:00").getTime();
+// Samuli Mäkinen's record: 61 hours and 38 minutes
+const recordHours = 61;
+const recordMinutes = 38;
+
+// Note: Not DST-change safe
+let endDate = new Date(startDate + ((recordHours * 60) + recordMinutes) * 60 * 1000);
+
+const year = endDate.getFullYear();
+const month = '0' + (endDate.getMonth() + 1); // January == 0
+const day = '0' + endDate.getDate();
+const hours = endDate.getHours();
+const minutes = '0' + endDate.getMinutes();
+const seconds = '0' + endDate.getSeconds();
+
+const endDateText = year + '-' + month.substr(-2) + '-' + day.substr(-2) + ' ' + hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+
+endDate = endDate.getTime();
+
+document.getElementById("departure").innerHTML = startDateText;
+document.getElementById("deadline").innerHTML = endDateText;
 
 const calc = function(t) {
     const days = Math.floor(t / (1000 * 60 * 60 * 24));
@@ -12,52 +32,55 @@ const calc = function(t) {
 };
 
 
+
 const update = function() {
-    // let now = new Date().getTime();
-    // let t = endDate - now;
-    // let t2 = now - startDate;
-    let t = endDate - samulisTime;
-    let t2 = samulisTime - startDate;
+    let now = new Date().getTime();
+    let t = endDate - now;
+    let t2 = now - startDate;
+    // let t = endDate - samulisTime;
+    // let t2 = samulisTime - startDate;
 
-    if (t >= 0) {
-
-        var time = calc(t);
-
-        document.getElementById("timer-days").innerHTML = time.days +
-        "<span class='label'>d</span>";
-
-        document.getElementById("timer-hours").innerHTML = ("0"+time.hours).slice(-2) +
-        "<span class='label'>h</span>";
-
-        document.getElementById("timer-mins").innerHTML = ("0"+time.mins).slice(-2) +
-        "<span class='label'>m</span>";
-
-        document.getElementById("timer-secs").innerHTML = ("0"+time.secs).slice(-2) +
-        "<span class='label'>s</span>";
-
-        var time = calc(t2);
-
-        document.getElementById("timer-days2").innerHTML = time.days +
-        "<span class='label'>d</span>";
-
-        document.getElementById("timer-hours2").innerHTML = ("0"+time.hours).slice(-2) +
-        "<span class='label'>h</span>";
-
-        document.getElementById("timer-mins2").innerHTML = ("0"+time.mins).slice(-2) +
-        "<span class='label'>m</span>";
-
-        document.getElementById("timer-secs2").innerHTML = ("0"+time.secs).slice(-2) +
-        "<span class='label'>s</span>";
-
-    // setInterval(update, 1000);
-
-    } else {
-
+    if (t < 0) {
         document.getElementById("timer").innerHTML = "The countdown is over!";
         document.getElementById("timer2").innerHTML = "The countdown is over!";
-
+        return;
     }
+
+    if (t2 < 0) {
+        // Before departure
+        t = endDate - startDate;
+        t2 = 0;
+    }
+
+    var time = calc(t);
+
+    document.getElementById("timer-days").innerHTML = time.days +
+    "<span class='label'>d</span>";
+
+    document.getElementById("timer-hours").innerHTML = ("0"+time.hours).slice(-2) +
+    "<span class='label'>h</span>";
+
+    document.getElementById("timer-mins").innerHTML = ("0"+time.mins).slice(-2) +
+    "<span class='label'>m</span>";
+
+    document.getElementById("timer-secs").innerHTML = ("0"+time.secs).slice(-2) +
+    "<span class='label'>s</span>";
+
+    var time = calc(t2);
+
+    document.getElementById("timer-days2").innerHTML = time.days +
+    "<span class='label'>d</span>";
+
+    document.getElementById("timer-hours2").innerHTML = ("0"+time.hours).slice(-2) +
+    "<span class='label'>h</span>";
+
+    document.getElementById("timer-mins2").innerHTML = ("0"+time.mins).slice(-2) +
+    "<span class='label'>m</span>";
+
+    document.getElementById("timer-secs2").innerHTML = ("0"+time.secs).slice(-2) +
+    "<span class='label'>s</span>";
 
 };
 
 update();
+setInterval(update, 1000);
