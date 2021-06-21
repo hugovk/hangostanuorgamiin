@@ -18,3 +18,4 @@ Timers for cycling between Hanko and Nuorgam `#HanNu`:
 ## Timo Petänen 2021
 
 * https://web.archive.org/web/20210620135323/https://www.hs.fi/urheilu/art-2000008066922.html
+* https://www.timeanddate.com/countdown/generic?iso=2021-06-23T22:48:00&p0=101&msg=Hanko+to+Nuorgam%2C+time+to+beat&font=sanserif&csz=1
