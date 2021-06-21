@@ -1,4 +1,4 @@
-const startDateText = "2021-06-21 09:00"
+const startDateText = "2021-06-21 09:10"
 const startDate = new Date(startDateText).getTime();
 // const samulisTime = new Date("Jun 6, 2019 01:03:00").getTime();
 
