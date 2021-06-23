@@ -1,6 +1,7 @@
 const startDateText = "2021-06-21 09:10"
 const startDate = new Date(startDateText).getTime();
-// const samulisTime = new Date("Jun 6, 2019 01:03:00").getTime();
+
+const timosTime = new Date("2021-06-23 22:16").getTime();
 
 // Samuli Mäkinen's record: 61 hours and 38 minutes
 const recordHours = 61;
@@ -34,11 +35,11 @@ const calc = function(t) {
 
 
 const update = function() {
-    let now = new Date().getTime();
-    let t = endDate - now;
-    let t2 = now - startDate;
-    // let t = endDate - samulisTime;
-    // let t2 = samulisTime - startDate;
+    // let now = new Date().getTime();
+    // let t = endDate - now;
+    // let t2 = now - startDate;
+    let t = endDate - timosTime;
+    let t2 = timosTime - startDate;
 
     if (t < 0) {
         document.getElementById("timer").innerHTML = "The countdown is over!";
