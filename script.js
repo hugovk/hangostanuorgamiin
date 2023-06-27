@@ -1,11 +1,15 @@
-const startDateText = "2021-06-21 09:10"
+const startDateText = "2023-06-27 09:30"
 const startDate = new Date(startDateText).getTime();
 
-const timosTime = new Date("2021-06-23 22:16").getTime();
-
 // Samuli Mäkinen's record: 61 hours and 38 minutes
+// const recordHours = 61;
+// const recordMinutes = 38;
+// const samulisTime = new Date("Jun 6, 2019 01:03:00").getTime();
+
+// Timo Petänen's record: 61 hours and 6 minutes
 const recordHours = 61;
-const recordMinutes = 38;
+const recordMinutes = 6;
+// const timosTime = new Date("2021-06-23 22:16").getTime();
 
 // Note: Not DST-change safe
 let endDate = new Date(startDate + ((recordHours * 60) + recordMinutes) * 60 * 1000);
@@ -17,7 +21,7 @@ const hours = endDate.getHours();
 const minutes = '0' + endDate.getMinutes();
 const seconds = '0' + endDate.getSeconds();
 
-const endDateText = year + '-' + month.substr(-2) + '-' + day.substr(-2) + ' ' + hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+const endDateText = year + '-' + month.substr(-2) + '-' + day.substr(-2) + ' ' + hours + ':' + minutes.substr(-2);
 
 endDate = endDate.getTime();
 
@@ -35,11 +39,11 @@ const calc = function(t) {
 
 
 const update = function() {
-    // let now = new Date().getTime();
-    // let t = endDate - now;
-    // let t2 = now - startDate;
-    let t = endDate - timosTime;
-    let t2 = timosTime - startDate;
+    let now = new Date().getTime();
+    let t = endDate - now;
+    let t2 = now - startDate;
+    // let t = endDate - attemptTime;
+    // let t2 = timosTime - startDate;
 
     if (t < 0) {
         document.getElementById("timer").innerHTML = "The countdown is over!";
