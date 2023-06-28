@@ -1,15 +1,16 @@
-const startDateText = "2021-06-21 09:10"
+const activeAttempt = false;
+const startDateText = "2021-06-21 09:10"; // Current attempt or last record
 const startDate = new Date(startDateText).getTime();
 
 // Samuli Mäkinen's record: 61 hours and 38 minutes
 // const recordHours = 61;
 // const recordMinutes = 38;
-// const samulisTime = new Date("Jun 6, 2019 01:03:00").getTime();
+// const recordEndDate = new Date("Jun 6, 2019 01:03:00").getTime();
 
 // Timo Petänen's record: 61 hours and 6 minutes
 const recordHours = 61;
 const recordMinutes = 6;
-const timosTime = new Date("2021-06-23 22:16").getTime();
+const recordEndDate = new Date("2021-06-23 22:16").getTime();
 
 // Note: Not DST-change safe
 let endDate = new Date(startDate + ((recordHours * 60) + recordMinutes) * 60 * 1000);
@@ -36,19 +37,21 @@ const calc = function(t) {
     return {days: days, hours: hours, mins: mins, secs: secs};
 };
 
-
-
 const update = function() {
-    // let now = new Date().getTime();
-    // let t = endDate - now;
-    // let t2 = now - startDate;
-    let t = endDate - timosTime;
-    let t2 = timosTime - startDate;
-
-    if (t < 0) {
-        document.getElementById("timer").innerHTML = "The countdown is over!";
-        document.getElementById("timer2").innerHTML = "The countdown is over!";
-        return;
+    let t;
+    let t2;
+    if (activeAttempt) {
+        let now = new Date().getTime();
+        t = endDate - now;
+        t2 = now - startDate;
+        if (t < 0) {
+            document.getElementById("timer").innerHTML = "The countdown is over!";
+            document.getElementById("timer2").innerHTML = "The countdown is over!";
+            return;
+        }
+    } else {
+        t = endDate - recordEndDate;
+        t2 = recordEndDate - startDate;
     }
 
     if (t2 < 0) {
@@ -88,4 +91,6 @@ const update = function() {
 };
 
 update();
-setInterval(update, 1000);
+if (activeAttempt) {
+    setInterval(update, 1000);
+}
