@@ -18,9 +18,3 @@ Timers for cycling between Hanko and Nuorgam `#HanNu`:
 ## Timo Petänen 2021
 
 * https://web.archive.org/web/20210620135323/https://www.hs.fi/urheilu/art-2000008066922.html
-
-## Jussi Laustela 2023
-
-* https://www.randonneurs.fi/live/jussi-suomen-halki-2023/
-* https://mastodon.social/@ssirkia@eliitin-some.fi/110614801113363375
-* https://www.timeanddate.com/countdown/generic?iso=2023-06-29T22:36:00&p0=101&msg=Hanko+to+Nuorgam%2C+time+to+beat&font=sanserif&csz=1
